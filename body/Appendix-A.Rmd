@@ -1,0 +1,57 @@
+
+\begin{appendix}
+    \renewcommand{\chaptername}{附录 \Alph{chapter}}
+    \renewcommand{\thesection}{\Alph{chapter}.\arabic{section}}
+    \renewcommand{\thesubsection}{\Alph{chapter}.\arabic{section}.\arabic{subsection}}
+    \renewcommand{\thesubsubsection}{\arabic{subsubsection}.}
+    \renewcommand{\thetable}{\Alph{chapter}-\arabic{table}}
+    \renewcommand{\theequation}{\Alph{chapter}-\arabic{equation}}
+    \renewcommand{\thefigure}{\Alph{chapter}-\arabic{figure}}
+\end{appendix}
+
+\chapter{附录标题}
+
+加油! 终于到最后一个部分了!
+
+\section{附录中的图形、表格、公式}
+
+
+附录中的公式(\ref{equ:Call})和(\ref{equ:Put})分别为:
+\begin{equation}\label{equ:Call}
+  c=S_0N(d_1)-X e^{-r T}N(d_2)
+\end{equation}
+和
+\begin{equation}\label{equ:Put}
+  p=X e^{-r T}N(-d_2)-S_0N(-d_1),
+\end{equation}
+
+
+\section{R代码}
+
+- 线性回归
+
+```{r eval=FALSE, echo=TRUE}
+par(mar = c(4, 4, 1, .1))
+fit = lm(dist ~ 1 + speed, data = cars)
+plot(cars, pch = 19, col = 'blue', las = 1)
+abline(fit, lwd = 2)
+```
+- ggplot2
+
+```{r eval=FALSE, echo=TRUE}
+par(mar = c(4, 4, 1, .1))
+fit = lm(dist ~ 1 + speed, data = cars)
+plot(cars, pch = 19, col = 'blue', las = 1)
+abline(fit, lwd = 2)
+```
+
+\section{Python代码}
+
+```{python, eval=FALSE, , echo=TRUE, fig.width = 6, out.width = "75%", fig.cap="Python Figure"}
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.arange(0.0, 6.0, 0.01)
+plt.plot(x, [x**2 for x in x])
+plt.show()
+```
+

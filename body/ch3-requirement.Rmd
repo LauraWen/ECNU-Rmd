@@ -1,0 +1,249 @@
+---
+documentclass: ctexbook
+output:
+  rticles::ctex
+header-includes:
+- \usepackage{cleveref}  
+- \usepackage{enumerate}
+- \usepackage[subnum]{cases}
+- \usepackage{amsmath,amsthm,amssymb,latexsym}
+- \usepackage{bm}
+- \usepackage{mathrsfs}               
+- \usepackage{subeqnarray}
+- \newtheorem{definition}{\hspace{2\ccwd}{\bf{定义}}}[chapter]
+- \newtheorem{proposition}{\hspace{2\ccwd}{\bf{命题}}}[chapter]
+- \newtheorem{property}{\hspace{2\ccwd}{\bf{性质}}}[chapter]
+- \newtheorem{theorem}{\hspace{2\ccwd}{\bf{定理}}}[chapter]
+- \newtheorem{lemma}[theorem]{\hspace{2\ccwd}{\bf{引理}}}
+- \newtheorem{corollary}{\hspace{2\ccwd}{\bf{推论}}} 
+- \newenvironment{cor}[1][\bf{推论}]{\newline\mbox{}\hspace{2\ccwd}\textbf{#1~~~}}{\hfill $\square$ \par}
+- \newtheorem{axiom}{\hspace{2\ccwd}{\bf{公理}}}[chapter]
+- \newtheorem{exercise}{\hspace{2\ccwd}{\bf{习题}}}[chapter]
+- \newtheorem{question}{\hspace{2\ccwd}{\bf{问题}}}
+- \newtheorem{example}{\hspace{2\ccwd}{\bf{例}}}[chapter]
+- \newtheorem{notation}{\hspace{2\ccwd}{\bf{记号}}}
+- \newtheorem{remark}{\hspace{2\ccwd}{\bf{注记}}}
+- \newtheorem{assumA}{{\bf 假设A-\hspace{-1mm}}}
+- \newtheorem{assumB}{{\bf 假设B-\hspace{-1mm}}}
+- \renewenvironment{proof}[1][证明]{\textbf{#1~~~}}{\hfill $\blacksquare$}
+- \newenvironment{solution}[1][解]{\textbf{#1~~~}}{\hfill $\blacksquare$} %{\hfill $\square$}
+
+---
+
+# 正文要求
+
+## 基本要求
+
+### 字数要求
+
+5000字以上. 
+
+### 封面要求
+
+#### 要求1  
+上交的每份论文都一律采用学校统一印发的外封面（装订线一律在左面）。
+
+#### 要求2
+另附自制内封面一份（A4纸张电脑打印），内容为中外文论文题目、作者的姓名、学号、班级、指导老师的姓名与职称、论文完成时间。
+
+### 纸张及装订要求
+
+毕业论文一律用A4纸张电脑打印。左侧装订。
+
+### 开题报告要求
+
+开题报告内容包括：选题的背景与意义（对与选题有关的国内外研究现状、进展情况、存在的问题等进行调研，在此基础上提出选题的研究意义），课题研究的主要内容、方法、技术路线，课题研究拟解决的主要问题及创新之处，课题研究的总体安排与进度，参考文献等方面。开题报告表格至教务处网站下载。
+
+
+## 有序列表
+
+1. 项目列表
+
+1. 项目列表
+
+1. 项目列表
+
+    a. 项目列表
+
+    a. 项目列表
+
+    a. 项目列表
+
+
+## 无序列表
+
+- 项目列表
+
+- 项目列表
+
+    - 项目列表
+
+    - 项目列表
+
+    - 项目列表
+    
+## 公式
+
+###  单行公式 
+
+
+- 公式示例1: 
+$$\mu_1\le\mu_2\le \dots\le \mu_k.$$
+
+- 公式示例2: 
+\begin{equation}\label{eq1}
+  x^2+y^2=1
+\end{equation}
+
+- 引用:  公式\eqref{eq1}或使用cleveref包,\cref{eq1}.
+
+###  多行公式 
+
+- 公式示例3:  
+\begin{align}
+  x^2+y^2 &= 1 \label{eq4}\\
+  x_2+y_2 &= 0  \label{eq5}
+\end{align}
+
+- 引用:  \cref{eq4}和\cref{eq5}
+
+- 公式示例4:  
+\[
+f(x)=\begin{cases} 1, & \mbox{If $x\ge 0$}, \\ 0,& \mbox{Otherwise,}\end{cases}
+\]
+
+- 公式示例5:  
+\begin{numcases}{|x|=}
+x, & for $x \geq 0$\\
+-x, & for $x < 0$
+\end{numcases}
+
+## 插入图形
+
+### 插入R产生的图形
+
+```{r, message=FALSE}
+library(FSAdata)
+data(RuffeSLRH92)
+library(FSA)
+library(knitr)
+```
+- 图形示例1: R图\ref{fig:Rfig-1}或使用cleveref包,\cref{fig:Rfig-1}
+
+```{r, fig.height=3, out.width = "70%", fig.align='center', fig.pos="h", fig.cap="\\label{fig:Rfig-1}1992年捕获的Ruffe的长度的频数.\\protect\\linebreak Figure\\ref{fig:Rfig-1} Length frequency of captured ruffes in 1992."}
+hist(~length, data=RuffeSLRH92)
+```
+
+### 插入本地图形
+
+- 本地图形:  \cref{fig:local-fig}.
+
+
+```{r locfig, fig.height=2, fig.cap="\\label{fig:local-fig}插入本地图形.\\protect\\linebreak Figure \\ref{fig:local-fig}\ \ Insert a local figure.", out.width = "70%", fig.align='center', fig.pos="h"}
+knitr::include_graphics("figures/example-image.png")
+```
+
+## 插入表格
+
+### 插入R生成的表格
+
+- R产生的数据列表
+
+```{r, echo=TRUE, comment=NA}
+summary(cars)
+```
+
+### 使用`xtable`: \cref{tab:xtable}
+
+```{r table3, results='asis', message=FALSE} 
+library(xtable) 
+print(
+  xtable(
+    caption = "\\label{tab:xtable}Iris数据-xtable.\\protect\\linebreak Table\\ref{tab:xtable}\ \  Iris data-xtable",
+    head(iris)
+  ),
+  caption.placement = "top",
+  comment = FALSE, type = 'latex')
+```
+
+### 使用 Kable: \cref{tab:kable1}
+
+```{r Kable, echo = TRUE,warning=FALSE, results='asis'}
+n <- 100
+x <- rnorm(n)
+y <- 2*x + rnorm(n)
+out <- lm(y ~ x)
+library(knitr)
+kable(caption = "\\label{tab:kable1}kable表.\\protect\\linebreak  Table\\ref{tab:kable1}\ \ Table with kable.", 
+      summary(out)$coef, digits=2,  booktabs=TRUE)
+```
+
+### 使用 Kable---带脚注: \cref{tab:kable2}
+
+```{r tidy=FALSE,comment=""}
+library('knitr')
+library('kableExtra')
+dt <- mtcars[1:5, 1:4]
+kable(dt, 
+      caption = "\\label{tab:kable2}mtcars数据-带脚注.\\protect\\linebreak Table\\ref{tab:kable2}\ \ Data of mtcars with footenote.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = F) %>%
+  add_header_above(c(" ", "Group 1" = 2, "Group 2[note]" = 2)) %>%
+  add_footnote(c("table footnote"))
+```  
+
+\newcommand{\bbb}{这是一个针对定理类环境进行的科技文稿排版测试}
+
+## 定理型环境示例
+
+\begin{definition} 
+\bbb
+\end{definition}
+
+\begin{theorem}\label{th1}
+ \bbb
+\end{theorem}
+
+\begin{proof}
+\bbb
+\end{proof}
+
+\begin{corollary}\label{cor1}
+\bbb
+\end{corollary}
+
+\begin{lemma}\label{lem1}
+\bbb
+\end{lemma}
+
+\begin{example}
+\bbb
+\end{example}
+
+## 脚注与引用
+
+
+### 脚注
+
+这里是脚注测试\footnote{1111111111}这里是脚注测试这里是脚注测试这里是脚注测试\footnote{2222222222}这里是脚注测试这里是脚注测试这里是脚注测试这里是脚注测试这里是脚注测试这里是脚注测试这里是脚注测试这里是脚注测试这里是脚注测试这里是脚注测试这里是脚注测试这里是脚注测试这里是脚注测试这里是脚注测试这里是脚注测试\footnote{3333333333}这里是脚注测试这里是脚注测试这里是脚注测试这里是脚注测试这里是脚注测试这里是脚注测试这里是脚注测试这里是脚注测试这里是脚注测试这里是脚注测试这里是脚注测试这里是脚注测试
+
+
+
+### 定理类引用
+
+由\cref{th1}我们可以知道XXXXXXXX。
+
+由\cref{lem1}我们可以知道XXXXXXXX。
+
+由\cref{cor1}我们可以知道XXXXXXXX。
+
+### 文献引用的演示
+
+本模板使用biblatex进行文献管理，这是一套相对较新的系统。另外，使用了hushidong制作的符合gb7714-2015标准的biblatex样式。在此对他的工作表示感谢，要完成这样的样式非常不容易。本模板中gb7714-2015.bbx与gb7714-2015.cbx即为他的作品，在这里打包发布以便使用。详见\url{https://github.com/hushidong/biblatex-gb7714-2015}查找相关资料。
+
+默认的bib文件位于~/reference/thesis-ref.bib，内容是由Wang 
+Tianshu制作。文献库~/reference/refs.bib收集了一些典型的例子，在此仅作演示之用。
+关于bib文件的编写与管理请自行查找相关教程。
+
+例如文献\cite{Xiedy:1997}是最早介绍\TeX{}的中文参考书。
+
+\nocite{*}

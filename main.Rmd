@@ -1,0 +1,101 @@
+---
+documentclass: book
+output:
+  rticles::ctex:
+    latex_engine: xelatex
+    keep_tex: true
+    fig_caption: yes
+    number_sections: yes
+#    toc: yes
+    includes:
+      in_header: setup/ctex_header.tex
+      before_body: setup/ctex_format.tex
+classoption: [a4paper,zihao=-4,UTF8]
+fontsize: 12pt
+header-includes:
+# 将参考文献字体设置为五号
+- \renewcommand*{\bibfont}{\zihao{5}}
+- \addbibresource{./reference/refs.bib} #加载bib文件（参考文献）
+#- \usepackage{your own packages here}    
+---
+
+
+```{r mathjax, child='setup/mathjax2tex.Rmd'}
+```
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.path = 'figures/',
+                      echo = FALSE, 
+                      warning = FALSE, 
+                      message = FALSE, 
+                      fig.align = "center",
+                      fig.pos = "h", 
+                      engine.path = 
+                        list(python = '/Users/anaconda3/bin/python'))
+```
+
+
+\frontmatter        
+\sloppy            
+
+
+\input{preface/paper_info.tex}
+
+\newgeometry{top=2.0cm, bottom=2.0cm,left=3.18cm, right=3.18cm} 
+  \input{preface/cover} 
+
+\restoregeometry
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\begin{spacing}{1}
+  \input{./preface/contents}
+\end{spacing}
+
+
+```{r child = 'preface/cabstract.Rmd'}
+```
+
+```{r child = 'preface/eabstract.Rmd'}
+```
+
+
+\mainmatter 
+
+\renewcommand{\baselinestretch}{1.5}
+\fontsize{11pt}{12pt}\selectfont
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+```{r child = 'body/ch1-intro.Rmd'}
+```
+
+```{r child = 'body/ch2-structure.Rmd'}
+```
+
+```{r child = 'body/ch3-requirement.Rmd'}
+```
+
+```{r child = 'body/ch4-conclud.Rmd'}
+```
+
+
+\phantomsection
+\addcontentsline{toc}{chapter}{\bf 参考文献}
+\printbibliography[title={\centerline{\bfseries\sffamily \zihao {-3}参考文献}}]
+
+<!--
+若参考文献不出现，请用使用TeX命令编译一次 biber main.tex，生成带文献的aux文件 
+若使用bibtex, 可使用传统的thebibliography，参考refs.Rmd
+-->
+
+```{r child = 'body/appendix-A.Rmd'}
+```
+
+
+\backmatter 
+
+```{r child = 'body/thanks.Rmd'}
+```
+
+
+\clearpage

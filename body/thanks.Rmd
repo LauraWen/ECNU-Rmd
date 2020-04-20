@@ -1,0 +1,30 @@
+---
+title: 'Chapter 1'
+author: "汤银才"
+documentclass: ctexbook
+output:
+  rticles::ctex:
+    fig_caption: yes
+    number_sections: yes
+classoption: "hyperref,"
+header-includes:
+# 加载必要的TeX包
+#- \usepackage{your own packages here}   
+---
+
+\renewcommand{\baselinestretch}{1.8}
+
+\chapter*{致~~~~谢}
+\markboth{致谢}{致谢}
+\addcontentsline{toc}{chapter}{\bf 致谢}
+
+从20xx年9月至今的三年学习期间得到了统计学院许多老师、同学和朋友的帮助, 在此一并表示感谢.
+
+
+在论文的选题到完成的各个阶段, 自始自终得到了导师 xxx
+的细心指导和帮助, 并提供了许多宝贵的资料和建议, 其......和严谨的治学精神是我整整三年学习期间最为珍贵的养份,
+在此我想由忠地说一声：谢谢 xxx 老师, 谢谢你给我的无私的帮助！
+
+
+最后, 也是最为重要的, 我的 xxx 多年来一直支持我的学习和研究, 在论文的完成过程中付出了大量的时间和心血. 
+感激之情, 难以言表, 我将永身不忘.

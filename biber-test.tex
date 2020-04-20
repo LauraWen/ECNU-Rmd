@@ -1,0 +1,138 @@
+% !TeX document-id = {32a890c7-0db2-461b-b834-605db552d4de}
+% !TEX root
+% !TEX program = xelatex
+% !BIB program = biber
+
+\documentclass[a4paper,zihao=-4,UTF8,punct,linespread=1.56]{ctexart}
+\pagestyle{empty} % 第二页以后页码空白
+\usepackage[a4paper,left = 3.2cm, right = 3.2cm, top = 2.54cm, bottom = 2.54cm]{geometry}
+\usepackage{xcolor}
+\usepackage{setspace}
+%\usepackage{xltxtra,mflogo,texnames}
+\usepackage[colorlinks]{hyperref}  
+
+
+%\usepackage[backend=biber,style=gb7714-2015,gbnamefmt=givenahead,
+%gbpub=false,gbbiblabel=dot,gbtitlelink=true]{biblatex}%sorting=nyt
+
+\usepackage[ 
+	backend		=	biber,
+	style		=	gb7714-2015mx, 
+	% Chinese support bibliography style gb7714-2015/gb7714-2015ay/gb7714-2015mx
+	gbnamefmt	=	givenahead,
+	gbnamefmt 	= 	lowercase, 
+	giveninits 	= 	true,
+	maxbibnames	=	99
+]{biblatex}
+%使用biblatex管理文献，输出格式使用gb7714-2015标准，后端为biber
+\DeclareDelimFormat{finalnamedelim}{，}
+
+\addbibresource{reference/refs.bib}
+\addbibresource{reference/thesis-ref.bib}
+
+\renewcommand*{\bibfont}{\small}
+\setlength{\bibitemsep}{0ex}
+\setaystylesection{2}
+
+\begin{document}
+	
+\title{GB7714-2015文献测试}	
+\author{汤银才}
+
+\maketitle
+
+\section{说明}
+
+本文测试
+
+\begin{enumerate}
+	\item biblatex文献管理. 文献生成通过biber 代替原有的bibtex生成参考文献；
+	\item 测试由hushidong 制作的符合 国标GB/T7714-2015 标准的 biblatex 样式
+\end{enumerate}
+
+参考文献的生成
+\begin{itemize}
+	\item 需要保证bib文献库格式的规范正确, 可用文本或Jabref软件生成；示例中给出了常用的文献式样. 	
+	\item 编译过程
+	\begin{verbatim}
+	xelatex 文件名
+	biber 文件名
+	xelatex 文件名	
+	xelatex 文件名
+	\end{verbatim}
+\end{itemize}
+
+
+\section{参考文献基本流程}
+\begin{enumerate}
+\item 准备: 导言处通过命令 addbibresource 添加后缀为bib的文献库，一次添加一个，可添加多个. 
+
+\begin{verbatim}
+\addbibresource{reference/refs.bib}
+\end{verbatim}
+
+\item 正文中通过命令 printbibliography 生成.	
+
+\begin{verbatim}
+\printbibliography[
+    title={\centerline{\bfseries\sffamily \zihao {-3}参考文献}}]
+\end{verbatim}
+
+\end{enumerate}
+
+\section{参考文献生成1}
+\begin{refsection}
+
+\subsection{引用}
+
+\begin{enumerate}
+	\item  上标引用
+	
+	
+	胡伟\cite{Wuwei:2013}
+	
+	\authornumcite{Wuwei:2013}
+	
+	\item 正常引用
+	
+	胡伟\parencite{Wuwei:2013},
+	
+	\textcite{Wuwei:2013}
+\end{enumerate}
+
+
+
+\nocite{*}
+
+\begin{spacing}{1.2} % 行距
+\zihao{5} \songti
+\printbibliography[heading=subbibliography, 
+	  title={\centerline{\bfseries\sffamily \zihao {-3}参考文献}}]
+\end{spacing}	
+			   
+\end{refsection}
+
+\section{参考文献生成2}
+\begin{refsection}
+
+\subsection{引用}
+
+	
+	贝叶斯\cite{Bayes63:classical}
+	
+		
+	贝叶斯\parencite{Bayes63:classical},
+	
+	\textcite{Bayes63:classical}
+
+\nocite{BEZOS02,ELIDRISSI94,MELLINGER96,SHELL02,Joa:1999,Yang_Hy200215,Xie_dy1997,Deng_PC2001,Shang_dy2001}
+
+\begin{spacing}{1.2} % 行距
+	\zihao{5} \songti
+	\printbibliography[heading=subbibliography,
+	title={\centerline{\bfseries\sffamily \zihao {-3}参考文献}}]
+\end{spacing}				   
+\end{refsection}
+
+
+\end{document}

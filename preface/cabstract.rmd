@@ -1,0 +1,20 @@
+---
+output: pdf_document
+---
+\renewcommand{\baselinestretch}{1.8}
+
+\chapter*{摘~~~~要}
+\addcontentsline{toc}{chapter}{\bf 摘要}
+
+此模板根据CTeX上提供的清泉(吴迎年, 华北电力大学)的博/硕士论文模板(LaTeXBook2.02)和
+其它类似的论文模板(如清华大学博士/硕士论文模板，袁轶君的华东师范大学本科毕业论文\TeX{}模板)修改后完成. 2013之前的版本仅适用于Windows系统, 主要为BGK编码. 2014版开始适合于所有的操作系统， 采用UTF-8编码, 且使用\XeLaTeX{}进行编译. 
+
+2020版在2014版的基础上进行了进一步改进，采用\XeLaTeX{}对正文进行编译, 用biblatex包的biber对文献进行处理和生成，文献风格采用国标GB/T4711-2015.  
+新的版本在Windows操作系统的CTeX2.9.x及Mac OSX的MacTeX及更一般的TeXLive2019下测试通过. 
+
+一般而言，中文摘要包含500－1000字，1－2页。关键词5－10个。
+
+\vspace{1em}
+\noindent 
+\textbf{关键词:} \rmfamily \KeywordsCHS
+

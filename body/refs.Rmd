@@ -1,0 +1,14 @@
+
+\addcontentsline{toc}{chapter}{参考文献}
+
+\begin{thebibliography}{99}
+\addtolength{\itemsep}{-0.8 em} 
+  \bibitem{Art}  作者. 文章题目[J]. {\it 期刊名称}. 发表年份, {\bf 卷号(期数)}: 起始页码. 
+  \bibitem{Book}  作者. {\it 书名}[M]. 出版地: 出版社, 出版年份.
+  \bibitem{Conference}  作者. 文章题目[C]. {\it 论文集名}, 编者, 出版社, 出版年份, 起始页码.
+  \bibitem{xuweiart}  作者. {\it 论文题目}[D]. 授学位单位, 授学位年份.
+  \bibitem{report}  作者. {\it 报告题目}[R]. 报告年月日.
+  \bibitem{epub}  作者. 题目[E]. 出处或可获得地址(网址). 发表或更新日期/引用日期  (任选).
+\bibitem{ecnu-1} 华东师范大学教务处. 关于印发《华东师范大学本科生毕业论文工作规定》（修订）的通知[R]. 2007. 
+\bibitem{ecnu-2}华东师范大学教务处. 华东师范大学本科毕业论文格式[R]. 2007. 
+\end{thebibliography}

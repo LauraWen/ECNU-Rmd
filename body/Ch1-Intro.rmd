@@ -1,0 +1,90 @@
+---
+documentclass: ctexbook
+output:
+  rticles::ctex
+header-includes:
+# 加载必要的TeX包
+#- \usepackage{your own packages here}   
+---
+
+# 引言
+
+## 引言内容
+
+简单介绍与论文选题有关的背景资料，包括国内外的研究现状，存在的问题，主要的参考文献，研究本文的动机，以后部分论文的基本结构。
+
+## 模板特色
+
+1. 根据华东师范大学本科毕业论文的要求定制(使用\TeX 技术)
+
+1. 相比于Word和\TeX 提升50-80\%的工作效率
+
+1. 通过Rmarkdown包实现对R, markdown, \TeX 的全面支持
+
+1. 免去复杂\TeX 命令, 仅通过简单的markdown标记语言实现快速写作
+
+1. 标准格式的pdf/高精度\TeX 输出
+
+1. 通过章节分类管理实现快速编译与整合
+
+1. 支持直接运行R和Python代码，并将生成的图形和表格嵌入到文档中
+
+1. 支持本地图形的插入
+
+1. 支持生成的R与Python图形自动添加题注(caption)
+
+1. 支持使用\TeX 命令对浮动公式、图形和表格进行引用
+
+1. 通过biblatex/biber实现对国标GB/T7714-2015格式参考文献支持
+
+1. 支持R代码抄录，且语法高亮显示
+
+1. 支持Python代码抄录，且语法高亮显示 
+
+
+
+## 模板使用说明
+
+### 软件安装
+
+1. [R3.6.2以上](https://www.r-project.org/)
+
+2. [Rstudio](https://rstudio.com/) 
+
+3. R包: rmarkdown(支持R+markdown+TeX写作), rticles(支持ctex排版)
+
+4. TeX: ctex套装(仅适用于Windows) 或 TeXLive2019(推荐, 适用于Windows, MacOS, Linux) 或 TinyTeX(适用于Windows, MacOS)
+
+### TinyTeX的安装
+
+1. 说明: TinyTeX是谢益辉开发的微型TeXLive套件，适合于对数学公式要求不要的\TeX{}软件用户, 运行过程中对于缺省的\TeX{}包可通过tlmgr实现自动在线安装。
+
+1. 安装 tinytex R包
+
+  - CRAN安装
+
+```r
+install.packages('tinytex')
+```
+
+  - github安装
+
+```r
+devtools::install_github('yihui/tinytex')
+tinytex::install_tinytex()
+```
+
+2. 安装TinyTeX
+
+```r
+tinytex::install_tinytex()
+```
+
+3. 卸载TinyTeX
+
+```r
+tinytex::uninstall_tinytex()
+```
+
+
+

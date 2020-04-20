@@ -1,0 +1,55 @@
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],  
+        jax: ["input/TeX", "output/HTML-CSS"], 
+        tex2jax: {
+            inlineMath: [
+                ['$', '$'],
+                ['\\(', '\\)']
+            ],
+            displayMath: [
+                ['$$', '$$'],
+                ["\[", "\]"]
+            ],
+            processEscapes: true
+        },
+        TeX: {
+            extensions: ["AMSmath.js", "AMSsymbols.js"],
+            equationNumbers: {
+                autoNumber: ["AMS"],
+                useLabelIds: true
+            },
+            Macros: {
+                hfill: "{}",
+                RR: ['{\\bf R}'],
+                rmd: ['\\mathrm{d}'],
+                mbb: ['\\mathbb'],
+                veps: ['\\varepsilon'],
+                abs: ['\\left| #1 \\right|',1],
+                du: ['^\\circ'],
+                myHearts: ['\\color{#1}{\\heartsuit}\\kern-2.5pt\\color{#2}{\\heartsuit}', 2],
+                san: ['a_1+a_2+\\dots+a_n'],
+                sak: ['a_1+a_2+\\dots+a_{#1}', 1],
+                sxk: ['{#1}_1+{#1}_2+\\dots+{#1}_{#2}', 2],
+                bold: ['\\bf #1', 1],
+                bm: '\\boldsymbol'
+            }
+        },
+        "HTML-CSS": {
+            linebreaks: {
+                automatic: true
+            },
+            availableFonts: ["TeX"],
+            scale: 110
+        },
+        SVG: {
+            linebreaks: {
+                automatic: true
+            }
+        }
+    });
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>

@@ -1,0 +1,149 @@
+% !TeX document-id = {32a890c7-0db2-461b-b834-605db552d4de}
+% !TEX root
+% !TEX program = xelatex
+% !BIB program = biber
+
+%\def \PrintMode{} %在使用电子版论文时，请将此行注释。在打印纸质论文时，请保持本行命令不被注释，然后打印时选择双面打印即可。
+
+%用来控制是否启动打印模式的宏，请勿改动。
+\ifx \PrintMode \undefined
+	\def \SideMode{oneside}
+	\def \ClearPageStyle{\clearpage}
+\else
+	\def \SideMode{twoside}
+	\def \ClearPageStyle{\cleardoublepage}
+\fi
+
+\usepackage[heading,zihao=-4]{ctex} %用来提供中文支持
+
+\usepackage{xspace} %提供一些好用的空格命令
+
+\usepackage{hyperref}
+\hypersetup{%
+	%  dvipdfmx,% 设定要使用的 driver 为 dvipdfmx
+	unicode={true},% 使用 unicode 来编码 PDF 字符串
+	pdfstartview={FitH},% 文档初始视图为匹配宽度
+	bookmarksnumbered={true},% 书签附上章节编号
+	bookmarksopen={true},% 展开书签
+	pdfborder={0 0 0},% 链接无框
+	citecolor=blue,
+	linkcolor=blue, % blue
+	anchorcolor=green,
+	urlcolor=blue,
+	colorlinks=true,     %注释掉此项则交叉引用为彩色边框(将colorlinks和pdfborder同时注释掉)
+	pdfborder=000        %注释掉此项则交叉引用为彩色边框
+	%pdfstartview=FitH,
+	%pdfpagemode=FullScreen % 实现打开后全屏
+}
+
+\usepackage{cleveref} %交叉引用
+
+
+%使用biblatex管理文献，输出格式使用gb7714-2015标准，后端为biber
+\usepackage[backend=biber,style=gb7714-2015,hyperref=true,gbnamefmt = lowercase,gbnamefmt=familyahead, giveninits = true,maxbibnames=99]{biblatex}
+
+%屏蔽无关的Warning
+\usepackage{silence}
+\WarningFilter*{biblatex}{Conflicting options.\MessageBreak'eventdate=iso' requires 'seconds=true'.\MessageBreak Setting 'seconds=true'}
+
+
+
+%============================版面控制宏包=================================%
+% 页边距：上:3.0cm，下：2.0cm，左：2.8cm，右：2.2cm，页眉：2.2cm，页脚1.5cm；
+\usepackage{geometry}
+\geometry{top=1.8cm,bottom=2cm,left=2.8cm,right=2.2cm,includehead,includefoot}
+\usepackage[symbol,perpage]{footmisc}  % 脚注控制可使得每页的脚注编码重新复位，
+
+\usepackage{fontspec} %设置字体需要的宏包
+%设置西文字体为Times New Roman，如果没有则以开源近似字体代替
+\IfFontExistsTF{Times New Roman}{
+	\setmainfont{Times New Roman}
+}{
+	\usepackage{newtxtext,newtxmath}
+}
+
+%设置文档中文字体。优先次序：中易 > Adobe > 华文(Mac) > Fandol
+\IfFontExistsTF{SimSun}{
+	\setCJKmainfont[AutoFakeBold=2,ItalicFont=KaiTi]{SimSun}
+}{
+	\IfFontExistsTF{AdobeSongStd-Light}{
+		\setCJKmainfont[AutoFakeBold=2,ItalicFont=AdobeKaitiStd-Regular]{AdobeSongStd-Light}
+	}{
+		\IfFontExistsTF{STSong}{
+			\setCJKmainfont[AutoFakeBold=2,BoldFont=STHeiti,ItalicFont=STKaiti]{STSong}
+		}{
+			\setCJKmainfont[AutoFakeBold=2,BoldFont=FandolHei-Regular,ItalicFont=FandolKai-Regular]{FandolSong-Regular}
+		}
+	}
+}
+\IfFontExistsTF{SimHei}{
+	\setCJKsansfont[AutoFakeBold=2]{SimHei}
+}{
+	\IfFontExistsTF{AdobeHeitiStd-Regular}{
+		\setCJKsansfont[AutoFakeBold=2]{AdobeHeitiStd-Regular}
+	}{
+		\IfFontExistsTF{STHeiti}{
+			\setCJKsansfont [AutoFakeBold=2]{STHeiti}
+		}{
+			\setCJKsansfont[AutoFakeBold=2]{FandolHei-Regular}
+		}
+	}
+}
+
+\renewcommand{\baselinestretch}{1.5} %1.5倍行距
+
+
+\showboxdepth=5
+\showboxbreadth=5
+
+
+%=============================标题与列表宏包=============================%
+%\usepackage{titlesec}  #             % 控制标题的宏包,配合命令在后面,
+\usepackage{enumerate}              % 改变列表标号样式宏包 其后可接选项[a,A,i,I,1]
+\usepackage[font=small]{caption}               % 浮动图形和表格标题样式,可选项为
+% [scriptsize,footnotesize,centerlast]
+\usepackage{setspace}               % 图形和表格的标题如果是多行，行距比较大,可以加宏包
+%使用绝对坐标制作封面使用的宏包
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\usepackage{fancyvrb,shortvrb,fancyhdr}  % 支持抄录
+% \usepackage{cite} % natbib不能再用了
+
+\lhead{{\CompleteYear}年~华东师范大学学士学位论文}
+\chead{}
+\rhead{\TitleCHS}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+
+
+%======================== 数学公式图形表格相关宏包 ===============================%
+\usepackage{xcolor}
+\usepackage{amsmath,amsthm,amssymb,latexsym}
+\newcommand\hmmax{0} % default 3
+\newcommand\bmmax{0} % default 4
+\usepackage{bm}
+\usepackage{mathrsfs}                % 不同于\mathcal or \mathfrak 之类的英文花体字体
+\usepackage{subeqnarray}             %多个子方程(1-1a)(1-1b)
+\usepackage[subnum]{cases}           % 公式环境cases
+\usepackage{array,tabularx,longtable,booktabs,threeparttable,colortbl,multirow,bigstrut}
+\usepackage{dcolumn}            % 让表格中将小数点对齐
+\usepackage{graphicx,subfigure}
+\usepackage{flafter}       % 因为图形可浮动到当前页的顶部，所以它可能会出现
+% 在它所在文本的前面. 要防止这种情况，可使用 flafter宏包
+\usepackage[below]{placeins}    %浮动图形控制宏包
+
+%=========================== 特殊文本元素宏包 ==============================%
+\usepackage{nicefrac}                % 在正文文本中排版分式时，可以用它来得到较好的排版效果。
+\usepackage{units}                   % 基于 nicefrac 宏包，提供对计量单位比较美观的排版效果。
+\usepackage{listings}                % 源代码宏包
+
+\usepackage{makeidx}                 % 建立索引宏包
+\makeindex
+
+\pagestyle{fancy}
+\setlength{\headheight}{20pt}
+\hbadness=10000
+\tolerance=10000

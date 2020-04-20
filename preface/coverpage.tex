@@ -1,0 +1,48 @@
+% !Mode:: "TeX:UTF-8"
+% UTF-8 编辑器
+
+% 中英文封面 
+
+\ctitle{{\bf ECNU本科生Rmarkdown毕业论文模板\\[-2mm]Rmarkdown Template for Undergraduate\\[-4mm] Dissertation in ECNU}}
+\cauthor{{\bf\makebox[4.5cm][s]{~李~某~}}}
+\studentid{{\bf\makebox[4.5cm][s]{~YS012345678~}}}
+\cmajor{{\bf\makebox[4.5cm][s]{~统计学~}}}
+\caffil{{\bf\makebox[4.5cm][s]{~统计学院~}}}
+\csupervisor{{\bf\makebox[4.5cm][s]{~某某某~}}}
+\cposit{{\bf\makebox[4.5cm][s]{~教授~}}}
+\cdate{{\bf\makebox[4.5cm][s]{~2020年5月~}}}
+
+\begin{titlepage}
+	% Chinese Cover
+	\parbox[t][0.8cm][c]{\textwidth}{\large\textbf{2020届本科生学士学位论文}  
+	\hfill 学校代码:~10269\hspace{1em}}
+	%	\\ \mbox{~} \hfill 学\hphantom{校代}号:~YS00140203 }
+	
+	\parbox[t][10.5cm][t]{\textwidth}{
+		\begin{center}
+			\includegraphics[width=0.7\textwidth]{figures/ecnu-cover.pdf}
+	\end{center} }
+	
+	\parbox[t][5cm][t]{\textwidth}{\Huge
+		\begin{center} {\bf  \@ctitle } \end{center} }
+	
+	\parbox[t][6cm][c]{\textwidth}{ {\Large
+			\begin{center}
+				
+				\renewcommand{\arraystretch}{1.0}
+				\begin{tabular}{p{0cm}p{5em}l@{\extracolsep{1em}}l}
+					~ & 姓\hfill 名 & & \underline{\@cauthor}\\
+			        ~ & 学\hfill 号 & & \underline{\@studentid} \\
+					~ & 专\hfill 业 & & \underline{\@cmajor}\\
+					~ & 院\hfill 系 & & \underline{\@caffil } \\
+					~ & 指\hfill 导\hfill 老\hfill 师 & & \underline{\@csupervisor}\\
+					~ & 职\hfill 称 & & \underline{\@cposit } \\
+					~ & 完\hfill 成\hfill 日\hfill 期 & & \underline{\@cdate}\\
+					
+				\end{tabular}
+	\end{center} } }
+	
+	
+\thispagestyle{empty}
+\end{titlepage}
+
